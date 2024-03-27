@@ -60,7 +60,7 @@ INSERT INTO contatos (nome, email, telefone, grupo, favorito) VALUES
 ('Elisa Ferreira', 'elisa.ferreira@example.com', '471987654321', 'família', TRUE),
 ('Rodolfo Barros', 'rodolfo.barros@example.com', '481987654321', 'amigo', FALSE),
 ('Nicole Rocha', 'nicole.rocha@example.com', '491987654321', 'trabalho', TRUE),
-('Vinícius Mendes', 'vinicius.mendes@example.com', '501987654321', 'escola', FALSE)
+('Vinícius Mendes', 'vinicius.mendes@example.com', '501987654321', 'escola', FALSE);
 
 \\Buscar por alguém em um grupo
 SELECT * FROM contatos WHERE grupo = 'trabalho';
