@@ -1,0 +1,105 @@
+CREATE DATABASE agenda_contatos;
+USE agenda_contatos;
+
+CREATE TABLE contatos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    grupo ENUM('trabalho', 'escola', 'família', 'amigo') NOT NULL,
+    favorito BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+INSERT INTO contatos (nome, email, telefone, grupo, favorito) VALUES 
+('João Silva', 'joao.silva@example.com', '11987654321', 'trabalho', FALSE),
+('Maria Oliveira', 'maria.oliveira@example.com', '21987654321', 'escola', TRUE),      
+('Carlos Pereira', 'carlos.pereira@example.com', '31987654321', 'família', FALSE),
+('Ana Costa', 'ana.costa@example.com', '41987654321', 'amigo', TRUE),
+('Ricardo Almeida', 'ricardo.almeida@example.com', '51987654321', 'trabalho', FALSE),
+('Fernanda Lima', 'fernanda.lima@example.com', '61987654321', 'escola', FALSE),
+('Roberto Souza', 'roberto.souza@example.com', '71987654321', 'família', TRUE),
+('Luciana Martins', 'luciana.martins@example.com', '81987654321', 'amigo', FALSE),
+('Rafael Torres', 'rafael.torres@example.com', '91987654321', 'trabalho', TRUE),
+('Patrícia Rocha', 'patricia.rocha@example.com', '101987654321', 'escola', FALSE),
+('Eduardo Lima', 'eduardo.lima@example.com', '111987654321', 'família', TRUE),
+('Sônia Cardoso', 'sonia.cardoso@example.com', '121987654321', 'amigo', FALSE),
+('Henrique Dias', 'henrique.dias@example.com', '131987654321', 'trabalho', TRUE),
+('Juliana Barros', 'juliana.barros@example.com', '141987654321', 'escola', FALSE),
+('André Fonseca', 'andre.fonseca@example.com', '151987654321', 'família', TRUE),
+('Camila Siqueira', 'camila.siqueira@example.com', '161987654321', 'amigo', FALSE),
+('Marcos Vinícius', 'marcos.vinicius@example.com', '171987654321', 'trabalho', TRUE),
+('Lívia Pereira', 'livia.pereira@example.com', '181987654321', 'escola', FALSE),
+('Bruno Cesar', 'bruno.cesar@example.com', '191987654321', 'família', TRUE),
+('Daniela Moraes', 'daniela.moraes@example.com', '201987654321', 'amigo', FALSE),
+('Felipe Ramos', 'felipe.ramos@example.com', '211987654321', 'trabalho', TRUE),
+('Priscila Fernandes', 'priscila.fernandes@example.com', '221987654321', 'escola', FALSE),
+('Leonardo Martins', 'leonardo.martins@example.com', '231987654321', 'família', TRUE),
+('Bianca Alves', 'bianca.alves@example.com', '241987654321', 'amigo', FALSE),
+('Caio Castro', 'caio.castro@example.com', '251987654321', 'trabalho', TRUE),
+('Vanessa Silva', 'vanessa.silva@example.com', '261987654321', 'escola', FALSE),
+('Gustavo Henrique', 'gustavo.henrique@example.com', '271987654321', 'família', TRUE),
+('Isabela Santos', 'isabela.santos@example.com', '281987654321', 'amigo', FALSE),
+('Thiago Oliveira', 'thiago.oliveira@example.com', '291987654321', 'trabalho', TRUE),
+('Carolina Machado', 'carolina.machado@example.com', '301987654321', 'escola', FALSE),
+('Gabriel Souza', 'gabriel.souza@example.com', '311987654321', 'família', TRUE),
+('Aline Ferreira', 'aline.ferreira@example.com', '321987654321', 'amigo', FALSE),
+('Marcelo Teixeira', 'marcelo.teixeira@example.com', '331987654321', 'trabalho', TRUE),
+('Fábio Araújo', 'fabio.araujo@example.com', '341987654321', 'escola', FALSE),
+('Débora Loureiro', 'debora.loureiro@example.com', '351987654321', 'família', TRUE),
+('Rodrigo Neves', 'rodrigo.neves@example.com', '361987654321', 'amigo', FALSE),
+('Tatiane Morais', 'tatiane.morais@example.com', '371987654321', 'trabalho', TRUE),
+('Alexandre Duarte', 'alexandre.duarte@example.com', '381987654321', 'escola', FALSE),
+('Fernando Costa', 'fernando.costa@example.com', '391987654321', 'família', TRUE),
+('Giovanna Lima', 'giovanna.lima@example.com', '401987654321', 'amigo', FALSE),
+('Pedro Henrique', 'pedro.henrique@example.com', '411987654321', 'trabalho', TRUE),
+('Julia Carvalho', 'julia.carvalho@example.com', '421987654321', 'escola', FALSE),
+('Lucas Peixoto', 'lucas.peixoto@example.com', '431987654321', 'família', TRUE),
+('Mariana Rocha', 'mariana.rocha@example.com', '441987654321', 'amigo', FALSE),
+('Rafaela Silva', 'rafaela.silva@example.com', '451987654321', 'trabalho', TRUE),
+('Igor Santos', 'igor.santos@example.com', '461987654321', 'escola', FALSE),
+('Elisa Ferreira', 'elisa.ferreira@example.com', '471987654321', 'família', TRUE),
+('Rodolfo Barros', 'rodolfo.barros@example.com', '481987654321', 'amigo', FALSE),
+('Nicole Rocha', 'nicole.rocha@example.com', '491987654321', 'trabalho', TRUE),
+('Vinícius Mendes', 'vinicius.mendes@example.com', '501987654321', 'escola', FALSE)
+
+\\Buscar por alguém em um grupo
+SELECT * FROM contatos WHERE grupo = 'trabalho';
+
+
+\\Buscar por alguém nos favoritos
+SELECT * FROM contatos WHERE favorito = TRUE;
+
+
+\\Buscar pelo nome
+SELECT * FROM contatos WHERE nome LIKE '%Maria%';
+
+\\Atualizações
+
+UPDATE contatos SET telefone = '21999999999', favorito = TRUE WHERE id = 3;
+UPDATE contatos SET grupo = 'trabalho', favorito = FALSE WHERE id = 4;
+UPDATE contatos SET telefone = '31999999999', favorito = TRUE WHERE id = 5;
+UPDATE contatos SET grupo = 'família', favorito = TRUE WHERE id = 6;
+UPDATE contatos SET telefone = '41999999999', favorito = FALSE WHERE id = 7;
+UPDATE contatos SET grupo = 'escola', favorito = FALSE WHERE id = 8;
+UPDATE contatos SET telefone = '51999999999', favorito = TRUE WHERE id = 9;
+UPDATE contatos SET grupo = 'amigo', favorito = TRUE WHERE id = 10;
+
+\\Deletar
+
+DELETE FROM contatos WHERE id = 50;
+-- Remova mais alguns contatos conforme necessário
+
+
+\\Mudar para favorito
+
+UPDATE contatos SET favorito = TRUE WHERE id IN (1, 2, 3);
+
+
+
+
+
+
+
+
+
+
